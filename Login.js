@@ -1,6 +1,4 @@
-// src/App.js
 import React, { useState, useEffect } from 'react';
-import { GoogleGenAI } from "@google/genai";
 
 function Login() {
 
