@@ -14,8 +14,9 @@ code {
 
 .head-font{
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 40px;
-  margin-bottom: 60px;
+  font-size: 50px;
+  margin-bottom: 70px;
+  margin-top: 10px;
 }
 
 .head-font2{
@@ -31,6 +32,33 @@ code {
   margin-bottom: 35px;
 }
 
-.search-form{
+.search-form {
   margin-top: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.form-control{
+  border-radius: 10px;
+  border-block-color: black;
+  border-inline-color: black;
+  border-width: 1px;
+}
+
+.btn-primary{
+  margin-top: 10px;
+  border-radius: 15px;
+  width: 80px;
+  height: 40px;
+  font-size: 150%;
+}
+
+.bg-light {
+  background-color: #EFEFEF !important;
+}
+
+.border {
+  border-color: black !important;
+  border-width: 1px !important;
+  border-radius: 10px !important;
 }
