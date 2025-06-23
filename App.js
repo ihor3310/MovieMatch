@@ -7,19 +7,6 @@ const ai = new GoogleGenAI({ apiKey: "AIzaSyDMfja8IRBhmj5XirkJvF_J_ar_qzYiOTM" }
 function App() {
   const [aiResp, setAIRes] = useState('');
   const [loading, setLoading] = useState(false);
-  const emojis = ["🤖", "🎬", "🎥", "🍿", "💡", "🎞️", "✨", "🧠", "📽️"];
-  const [idea, setIdea] = useState('')
-
-
-  useEffect(() => {
-    setIdea(emojis[Math.floor(Math.random() * emojis.length)]);
-    const interval = setInterval(() => {
-      const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
-      setIdea(randomEmoji);
-    }, 800);
-
-    return () => clearInterval(interval);
-  }, []);
 
   const [input1, setInput1] = useState('');
   const [input2, setInput2] = useState('');
@@ -33,7 +20,7 @@ function App() {
     const response = await ai.models.generateContent({
       model: "gemini-1.5-flash",
       contents: `Ти фільмознавець і давай відповідь на промт який зараз отримаєш максимально серйозно, ти повнен дійсно допомогти і якщо треба - довго подумати, отже:\n
-      дай мені три фільми які підійдуть під такі категорії. ТИ МАЄШ лише написати три назви фільму і рік кожного з цих фільмів:\n\n
+      дай мені три фільми які НАЙКРАЩЕ підійдуть під такі категорії які я зараз напишу. ТИ МАЄШ лише написати три назви фільму і рік кожного з цих фільмів:\n\n
       1) жанр: ${input1}\n
       2) нахил (тобто який би жанр не був, нахил повинен його посилювати або навпаки помʼякшувтаи і шукати щось помірне): ${input3} \n
       3) і найголовніше - назва фільму який мені сподобався і хочу щоб ти за цими троьма критеріями знайшов підходящий (тобто за схожим вайбіком): ${input2}
@@ -50,7 +37,7 @@ function App() {
 
   return (
     <div className="container mt-5">
-      <h1 className="text-center mb-4 head-font">AI-movies secret club {idea}</h1>
+      <h1 className="text-center mb-4 head-font">AI-movies secret club</h1>
       <p className="text-center head-font2">Explore films — with AI-generated offers</p>
       <p className="text-center head-font3">Suggestions are created based on your preferences and desires at the moment</p>
 
@@ -60,7 +47,7 @@ function App() {
             <input
               type="text"
               className="form-control"
-              placeholder="xxx"
+              placeholder="Жанр"
               value={input1}
               onChange={(e) => setInput1(e.target.value)}
             />
@@ -69,7 +56,7 @@ function App() {
             <input
               type="text"
               className="form-control"
-              placeholder="xxx"
+              placeholder="нахил (похибка напряму фільму)"
               value={input2}
               onChange={(e) => setInput2(e.target.value)}
             />
@@ -78,7 +65,7 @@ function App() {
             <input
               type="text"
               className="form-control"
-              placeholder="xxx"
+              placeholder="вайбік іншого фільму, на який схожий (назва цього фільму)"
               value={input3}
               onChange={(e) => setInput3(e.target.value)}
             />
