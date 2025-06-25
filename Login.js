@@ -17,8 +17,12 @@ function Login() {
   }, []);
 
   const submitUs = (e) =>{
+    const userrr = document.getElementById('userrr').value;
+    const passs = document.getElementById('passs').value;
     e.preventDefault();
-    window.location.href = "/app";
+    if (userrr == 'admin' && passs == 'admin'){
+      window.location.href = "/app";
+    }
   }
 
 
@@ -32,15 +36,17 @@ function Login() {
           <div className="col-md-4">
             <input
               type="text"
+              id="userrr"
               className="form-control"
-              placeholder="username"
+              placeholder="user: admin"
             />
           </div>
           <div className="col-md-4">
             <input
               type="text"
+              id="passs"
               className="form-control"
-              placeholder="password"
+              placeholder="pass: admin"
             />
           </div>
         </div>
